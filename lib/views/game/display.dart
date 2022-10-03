@@ -8,6 +8,8 @@ class DisplayPage extends StatefulWidget {
 }
 
 class _DisplayPageState extends State<DisplayPage> {
+  bool isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +34,14 @@ class _DisplayPageState extends State<DisplayPage> {
                     Container(
                       margin: const EdgeInsets.only(top: 16.0, right: 16.0),
                       child: FloatingActionButton(
-                        onPressed: () => {},
+                        onPressed: () => {
+                          setState(() {
+                            isFavorite = !isFavorite;
+                          })
+                        },
                         backgroundColor: Colors.white,
-                        child: const Icon(Icons.favorite, color: Colors.grey),
+                        child: Icon(Icons.favorite,
+                            color: (isFavorite ? Colors.red : Colors.grey)),
                       ),
                     )
                   ],
@@ -62,6 +69,11 @@ class _DisplayPageState extends State<DisplayPage> {
                 ),
               ),
             ),
+            Container(
+                child: const Text(
+              "Dota 2",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+            )),
             Flexible(
               flex: 4,
               child: SingleChildScrollView(
