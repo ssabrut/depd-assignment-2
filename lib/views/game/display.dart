@@ -16,6 +16,12 @@ class _DisplayPageState extends State<DisplayPage> {
         appBar: AppBar(
           title: const Text('Dota 2'),
         ),
+        floatingActionButton: FloatingActionButton.extended(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const PlayForm()));
+            },
+            label: const Text("Download now")),
         body: Container(
             child: Column(
           children: [
